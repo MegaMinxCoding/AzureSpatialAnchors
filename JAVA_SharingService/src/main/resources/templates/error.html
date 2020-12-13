@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<head th:include="fragments/header :: head">
+	<title>EvaChatApp - Fehler</title>
+</head>
+
+<body>
+    <h3>some errors</h3>
+    <h1 th:text="${errorCode}">XXX</h1>
+    <p th:utext="${errorMessage}">Error</p>
+    <a href="/" th:href="@{/}">Back to Home Page</a>
+</body>
+</html>

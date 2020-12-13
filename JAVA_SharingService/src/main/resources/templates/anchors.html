@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<head th:include="fragments/header :: head">
+</head>
+
+<body>
+
+	<div th:include="fragments/body :: headline (txt='Azure Spatial Anchor SharingService' )"></div>
+<!-- 	<div th:include="fragments/body :: nav (all=true)"></div> -->
+
+	<section class="container">	
+		
+
+		<br>
+		<table class="table table-hover table-bordered table-sm"
+			th:if="${not #lists.isEmpty(listAllAnchors)}">
+			<colgroup>
+      			 <col span="1" style="width: 20%;">
+       			 <col span="1" style="width: 70%;">
+   			</colgroup>
+		<thead class="thead-light">
+			<tr>
+				<th scope="col">TimeStamp</th>
+				<th scope="col">Identifier</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="asa : ${listAllAnchors}">
+				<td>
+					<div th:name="modelTimeStamp">
+						<span th:text="${asa.timeStamp}"></span> 
+					</div>
+				</td>
+				<td>
+					<div th:name="modelIdentifier">
+						<span th:text="${asa.id}"></span>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div>
+		<form th:action = "@{/addAnchorManual}" method="post">
+			<table class="table table-hover table-bordered table-sm">
+				<tbody>
+					<tr>
+						<td>
+							<label for="id_in">Identifier:</label>
+							<input type="text" id="id_in" name="id" >
+						</td>
+						<td >
+							<input type = "submit" value="Confirm the Anchor ID">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>		
+	</div>
+	<div align="center">
+			<form th:action = "@{/deleteAll}" method="post">
+				<input class ="btn btn-outline-warning" type="submit" value="DELETE ALL ANCHORS">
+			</form>
+		
+	</div>
+	</section>
+	<br>
+	<div th:include="fragments/footer :: footer"></div>
+
+</body>
+</html>

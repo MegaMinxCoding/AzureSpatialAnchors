@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+	<div th:fragment="headline (txt)">
+		<div class="container">
+			<br>
+			<header>
+				<h5 class="text-center">
+					<span th:if="${txt != null}" th:text="${txt}"></span>
+				</h5>
+			</header>
+			<br>
+		</div>
+	</div>
+
+	<div th:fragment="nav (all)">
+		<div class="container">
+			<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="https://www.fh-zwickau.de/pti/startseite/"><img scr="pic/logo.jpg"></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item">
+								<a class="nav-link" href="/select">Selection</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/showCart">Cart</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/showOrders">ShowOrders</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/login">Login</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				
+			</nav>
+		</div>
+		<br>
+	</div>
+
+</body>
+
+</html>
